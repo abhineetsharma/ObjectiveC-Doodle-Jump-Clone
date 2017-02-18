@@ -20,13 +20,33 @@
         CGRect bounds = [self bounds];
         
         jumper = [[Jumper alloc] initWithFrame:CGRectMake(bounds.size.width/2, bounds.size.height - 20, 20, 20)];
-        [jumper setBackgroundColor:[UIColor redColor]];
+        [jumper setBackgroundColor:[UIColor blueColor]];
         [jumper setDx:0];
         [jumper setDy:10];
         [self addSubview:jumper];
         [self makeBricks:nil];
     }
     return self;
+}
+/*- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
+    
+    // do your stuff here
+  NSString *msg=  [NSString stringWithFormat:@"%@",[super hitTest:point withEvent:event]];
+    // return nil if you want to prevent interaction with UI elements
+    NSLog(@"%@",msg);
+    return [super hitTest:point withEvent:event];
+}*/
+
+- (IBAction)itemSlider:(UISlider *)itemSlider withEvent:(UIEvent*)e;
+{
+    UITouch * touch = [e.allTouches anyObject];
+    
+    if( touch.phase != UITouchPhaseMoved && touch.phase != UITouchPhaseBegan)
+    {
+        //The user hasn't ended using the slider yet.
+        NSLog(@"Touch finish");
+    }
+    
 }
 
 -(IBAction)makeBricks:(id)sender
@@ -46,8 +66,26 @@
     bricks = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; ++i)
         {
+            
+            NSString * imageName=[NSString stringWithFormat:@"%@.png",@"Brick_Block"];
+            
             Brick *b = [[Brick alloc] initWithFrame:CGRectMake(0, 0, width, height)];
-            [b setBackgroundColor:[UIColor blueColor]];
+            
+            UIImage *img = [UIImage imageNamed:imageName ];
+            CGSize imgSize = b.frame.size;
+
+            UIGraphicsBeginImageContext( imgSize );
+            [img drawInRect:CGRectMake(0,0,imgSize.width,imgSize.height) ];
+            UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            CATransition *animation = [CATransition animation];
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+            animation.type = kCATransitionFade;
+            animation.duration = 0.5;
+            [b.layer addAnimation:animation forKey:@"kCATransitionFade"];
+            b.backgroundColor =  [UIColor colorWithPatternImage:newImage];
+            
+            //[b setBackgroundColor:<#(UIColor * _Nullable)#>//setBackgroundColor:[UIColor redColor]];
             [self addSubview:b];
             [b setCenter:CGPointMake(rand() % (int)(bounds.size.width * .8), rand() % (int)(bounds.size.height * .8))];
             [bricks addObject:b];
