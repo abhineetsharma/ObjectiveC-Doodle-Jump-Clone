@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  doodleJump
+//  Doodle2
 //
-//  Created by Abhineet Sharma on 2/15/17.
-//  Copyright © 2017 Abhineet Sharma. All rights reserved.
+//  Created by Patrick Madden on 2/4/17.
+//  Copyright © 2017 Binghamton CSD. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
