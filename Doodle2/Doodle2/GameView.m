@@ -75,9 +75,12 @@
             CGSize imgSize = b.frame.size;
 
             UIGraphicsBeginImageContext( imgSize );
+            
             [img drawInRect:CGRectMake(0,0,imgSize.width,imgSize.height) ];
+            
             UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
+            
             CATransition *animation = [CATransition animation];
             animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             animation.type = kCATransitionFade;
@@ -98,7 +101,22 @@
     // Drawing code
 }
 */
+-(void) moveBricks:(int) y
+{
+    for (Brick *brick in bricks)
+    {
+        int x = [brick frame].origin.x;
+        int cY =[brick frame].origin.y+y;
+        CGRect bounds = [self bounds];
+        float width = bounds.size.width * .2;
+        float height = 20;
 
+        brick.frame =CGRectMake(x,cY,width,height);
+        
+        //self.myTextLabel.frame = CGRectMake(x,cY,width,height);
+    }
+    
+}
 -(void)arrange:(CADisplayLink *)sender
 {
     CFTimeInterval ts = [sender timestamp];
@@ -150,6 +168,7 @@
                 // Yay!  Bounce!
                 NSLog(@"Bounce!");
                 [jumper setDy:10];
+                 [self moveBricks:20];
             }
         }
     }
