@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "747989381E46863A002B62A0"
-               BuildableName = "Doodle2.app"
-               BlueprintName = "Doodle2"
-               ReferencedContainer = "container:Doodle2.xcodeproj">
+               BlueprintIdentifier = "C3A99F011E5A94A600896D75"
+               BuildableName = "DoodleJump.app"
+               BlueprintName = "DoodleJump"
+               ReferencedContainer = "container:DoodleJump.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "747989381E46863A002B62A0"
-            BuildableName = "Doodle2.app"
-            BlueprintName = "Doodle2"
-            ReferencedContainer = "container:Doodle2.xcodeproj">
+            BlueprintIdentifier = "C3A99F011E5A94A600896D75"
+            BuildableName = "DoodleJump.app"
+            BlueprintName = "DoodleJump"
+            ReferencedContainer = "container:DoodleJump.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -55,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "747989381E46863A002B62A0"
-            BuildableName = "Doodle2.app"
-            BlueprintName = "Doodle2"
-            ReferencedContainer = "container:Doodle2.xcodeproj">
+            BlueprintIdentifier = "C3A99F011E5A94A600896D75"
+            BuildableName = "DoodleJump.app"
+            BlueprintName = "DoodleJump"
+            ReferencedContainer = "container:DoodleJump.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -74,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "747989381E46863A002B62A0"
-            BuildableName = "Doodle2.app"
-            BlueprintName = "Doodle2"
-            ReferencedContainer = "container:Doodle2.xcodeproj">
+            BlueprintIdentifier = "C3A99F011E5A94A600896D75"
+            BuildableName = "DoodleJump.app"
+            BlueprintName = "DoodleJump"
+            ReferencedContainer = "container:DoodleJump.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

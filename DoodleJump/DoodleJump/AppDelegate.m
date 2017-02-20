@@ -1,9 +1,9 @@
 //
 //  AppDelegate.m
-//  Doodle2
+//  DoodleJump
 //
-//  Created by Patrick Madden on 2/4/17.
-//  Copyright © 2017 Binghamton CSD. All rights reserved.
+//  Created by Abhineet Sharma on 2/19/17.
+//  Copyright © 2017 Abhineet Sharma. All rights reserved.
 //
 
 #import "AppDelegate.h"

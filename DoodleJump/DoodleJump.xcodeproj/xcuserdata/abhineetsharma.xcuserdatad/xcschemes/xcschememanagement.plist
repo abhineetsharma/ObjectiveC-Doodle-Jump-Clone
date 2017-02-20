@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Doodle2.xcscheme</key>
+		<key>DoodleJump.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>747989381E46863A002B62A0</key>
+		<key>C3A99F011E5A94A600896D75</key>
 		<dict>
 			<key>primary</key>
 			<true/>
