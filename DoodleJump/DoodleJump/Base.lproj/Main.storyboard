@@ -22,9 +22,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq0-pZ-VVd">
-                                <rect key="frame" x="164" y="266" width="46" height="30"/>
+                                <rect key="frame" x="109" y="266" width="101" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Game Start"/>
                                 <connections>
                                     <segue destination="OXj-pN-uuG" kind="popoverPresentation" popoverAnchorView="Iq0-pZ-VVd" id="ZAJ-sd-0ja">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -37,11 +37,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="43.628185907046479"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="MQy-np-F0k">
             <objects>
-                <viewController id="OXj-pN-uuG" sceneMemberID="viewController">
+                <viewController id="OXj-pN-uuG" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WBp-Wf-PKX"/>
                         <viewControllerLayoutGuide type="bottom" id="ioO-u1-eea"/>
@@ -70,22 +71,35 @@
                                 <rect key="frame" x="214" y="175" width="122" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="Hao-F1-Vuy" userLabel="plat1">
-                                <rect key="frame" x="37" y="112" width="122" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhl-Lc-lYa">
                                 <rect key="frame" x="164" y="292" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="StartGame:" destination="OXj-pN-uuG" eventType="touchUpInside" id="reQ-AJ-FKK"/>
+                                </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="football1.png" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-Wg-Wtz">
-                                <rect key="frame" x="256" y="564" width="38" height="26"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="football1.png" translatesAutoresizingMaskIntoConstraints="NO" id="PA1-Wg-Wtz" userLabel="ball">
+                                <rect key="frame" x="256" y="543" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="xA0-6I-ut1" userLabel="plat1">
+                                <rect key="frame" x="37" y="112" width="122" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="ball" destination="PA1-Wg-Wtz" id="dNE-r4-XDL"/>
+                        <outlet property="platform1" destination="KMo-N1-cgU" id="cPh-hB-JmA"/>
+                        <outlet property="platform2" destination="qap-OI-huL" id="gBu-zR-bD0"/>
+                        <outlet property="platform3" destination="wQk-Nr-kh0" id="ozQ-JB-UYe"/>
+                        <outlet property="platform4" destination="mPN-Zm-rn4" id="4yf-yq-OOh"/>
+                        <outlet property="platform5" destination="fxD-9Y-qxU" id="0HK-pt-OJd"/>
+                        <outlet property="platform6" destination="xA0-6I-ut1" id="oG5-86-zr1"/>
+                        <outlet property="startButton" destination="Xhl-Lc-lYa" id="yuU-H1-XXS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lal-bY-uvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
