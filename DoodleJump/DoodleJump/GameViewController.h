@@ -35,9 +35,9 @@ BOOL stopMovement;
 @property (strong, nonatomic) NSTimer * timer;
 - (IBAction)StartGame:(id)sender;
 
-- (void) Pohyb;
+- (void) Movement;
 - (void) Bounce;
-- (void) PohybPlatformy;
+- (void) platformMovement;
 - (void) PlatformPad;
 
 @end

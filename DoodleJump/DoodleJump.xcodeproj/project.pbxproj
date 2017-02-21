@@ -332,6 +332,7 @@
 				C3A99F1B1E5A94A700896D75 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

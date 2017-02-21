@@ -75,7 +75,7 @@ NSOperationQueue *operation;
     self.startButton.hidden = YES;
     upMovement = -5;
     
-    _Casovac = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(Pohyb) userInfo:nil repeats:YES];
+    _Casovac = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(Movement) userInfo:nil repeats:YES];
     
     self.platform2.hidden = NO;
     self.platform3.hidden = NO;
@@ -132,9 +132,9 @@ NSOperationQueue *operation;
 }
 
 
--(void) Pohyb {
+-(void) Movement {
     
-    [self PohybPlatformy];
+    [self platformMovement];
     self.ball.center = CGPointMake(self.ball.center.x + sideMovement, self.ball.center.y - upMovement);
     
     if (self.ball.center.y < 100) {
@@ -247,9 +247,9 @@ NSOperationQueue *operation;
                                  [self changeImageSize:@"football1.png" toWidth:40 andHeightto:40], nil ];
     
     [self.ball setAnimationRepeatCount:1];
-    self.ball.animationDuration = 0.2;
+    self.ball.animationDuration = 1;
     [self.ball startAnimating];
-    
+    //[self.view addSubview:self.ball];
     if (self.ball.center.y > 600) {
         upMovement = 10;
     } else if (self.ball.center.y > 500) {
@@ -260,11 +260,13 @@ NSOperationQueue *operation;
         upMovement = 7;
     }
     
+  
+    
 }
 
 
 
-- (void) PohybPlatformy {
+- (void) platformMovement{
     
     
     self.platform1.center = CGPointMake(self.platform1.center.x, self.platform1.center.y + padaniePlatformy);
