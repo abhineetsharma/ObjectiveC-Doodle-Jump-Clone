@@ -30,6 +30,7 @@ BOOL stopMovement;
 @property (weak, nonatomic) IBOutlet UIImageView *ball;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
+@property (strong, nonatomic) NSTimer * Casovac;
 
 @property (strong, nonatomic) NSTimer * timer;
 - (IBAction)StartGame:(id)sender;
@@ -37,7 +38,7 @@ BOOL stopMovement;
 - (void) Pohyb;
 - (void) Bounce;
 - (void) PohybPlatformy;
-- (void) PlatformaPad;
+- (void) PlatformPad;
 
 @end
 

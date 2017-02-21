@@ -17,55 +17,33 @@ NSOperationQueue *operation;
 @end
 
 @implementation GameViewController
+
+//INTERAKTIVITA (Naprogramovanie klikatelnej casti
+
 -(void) touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-    NSLog(@"Touch Happened.");
-}
--(void)read{
-    CMAttitude *attitude;
-    CMDeviceMotion * motionDevice = motion.deviceMotion;
-    attitude = motionDevice.attitude;
     
-    //_rollLabel.text = roll;
+    UITouch * tuknutie = [touches anyObject];
+    CGPoint bod = [tuknutie locationInView:self.view];
     
-    NSLog(@" %f" , attitude.roll);
-    //UITouch * tuknutie = [touches anyObject];
-    //CGPoint bod = [tuknutie locationInView:self.view];
-    if (attitude.roll > 0.01) {
-        moveBallRight = YES;
-    }
-    else if(attitude.roll < -0.01) {
+    if(bod.x < 160) {
         moveBallLeft = YES;
     }
     
-    
-    else{
-        moveBallLeft = NO;
-        moveBallRight = NO;
-        stopMovement = YES;
+    if (bod.x > 160) {
+        moveBallRight = YES;
     }
     
 }
-//-(void) touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-//    moveBallLeft = NO;
-//    moveBallRight = NO;
-//    stopMovement = YES;
-//}
+
+-(void) touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    moveBallLeft = NO;
+    moveBallRight = NO;
+    stopMovement = YES;
+}
 
 
-//HLAVNY SPUSTAC
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    motion = [[CMMotionManager alloc] init];
-    motion.deviceMotionUpdateInterval = 1/60;
-    [motion startDeviceMotionUpdates];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:(1/60) target:self selector:@selector(read) userInfo:nil repeats:YES];
-    
-    if([motion isGyroAvailable]){
-        if([motion isGyroActive]){
-            [motion setGyroUpdateInterval:(0.01)];
-        }}
-    
     // Do any additional setup after loading the view.
     self.platform2.hidden = YES;
     self.platform3.hidden = YES;
@@ -82,19 +60,29 @@ NSOperationQueue *operation;
     // Dispose of any resources that can be recreated.
 }
 
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)StartGame:(id)sender {
     
     self.startButton.hidden = YES;
     upMovement = -5;
     
-    _timer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(Pohyb) userInfo:nil repeats:YES];
+    _Casovac = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(Pohyb) userInfo:nil repeats:YES];
     
     self.platform2.hidden = NO;
     self.platform3.hidden = NO;
     self.platform4.hidden = NO;
     self.platform5.hidden = NO;
     self.platform6.hidden = NO;
+    
     
     number = arc4random()%206;
     number = number + 50;
@@ -116,7 +104,7 @@ NSOperationQueue *operation;
     number = number + 50;
     self.platform6.center = CGPointMake(number, 126);
     
-    
+   
     platform3pohyb = 2;
     platform5pohyb = -2;
     
@@ -124,23 +112,26 @@ NSOperationQueue *operation;
 
 
 
--(void)PlatformaPad {
+
+
+
+
+-(void) PlatformPad {
     
     if (self.ball.center.y > 500) {
-        padaniePlatformy = 1;
-    } else if (self.ball.center.y > 450) {
         padaniePlatformy = 2;
-    } else if (self.ball.center.y > 400) {
+    } else if (self.ball.center.y > 450) {
         padaniePlatformy = 4;
+    } else if (self.ball.center.y > 400) {
+        padaniePlatformy = 8;
     } else if (self.ball.center.y > 300) {
-        padaniePlatformy = 5;
+        padaniePlatformy = 10;
     } else if (self.ball.center.y > 250) {
-        padaniePlatformy = 6;
+        padaniePlatformy = 12;
     }
 }
 
 
-//HLAVNY POHYB
 -(void) Pohyb {
     
     [self PohybPlatformy];
@@ -151,41 +142,40 @@ NSOperationQueue *operation;
     }
     
     
-    //    INTERSECT, odrazenie od platformy.
     if ((CGRectIntersectsRect(self.ball.frame, self.platform1.frame)) && (upMovement < -2) ) {
         
         [self Bounce];
-        [self PlatformaPad];
+        [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform2.frame)) && (upMovement < -2) ) {
         
         [self Bounce];
-        [self PlatformaPad];
+        [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform3.frame)) && (upMovement < -2) ) {
         
         [self Bounce];
-        [self PlatformaPad];
+        [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform4.frame)) && (upMovement < -2) ) {
         
         [self Bounce];
-        [self PlatformaPad];
+        [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform5.frame)) && (upMovement < -2) ) {
         
         [self Bounce];
-        [self PlatformaPad];
+        [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform6.frame)) && (upMovement < -2) ) {
         
         [self Bounce];
-        [self PlatformaPad];
+        [self PlatformPad];
     }
     
     upMovement = upMovement - 0.3;
@@ -222,22 +212,39 @@ NSOperationQueue *operation;
         }
     }
     
-    //    Kontrola, ci lopta neprekrocila okraje
     if (self.ball.center.x < -11) {
         self.ball.center = CGPointMake(350, self.ball.center.y);
     } else if (self.ball.center.x > 350) {
         self.ball.center = CGPointMake(-11, self.ball.center.y);
     }
-    //    KONIEC KONTROLY
+   
     
 }
 
+-(UIImage *) changeImageSize:(NSString *) imgName toWidth:(int)width andHeightto:(int) height
+{
+   
+        CGRect rect = CGRectMake(0,0,width,height);
+        UIGraphicsBeginImageContext( rect.size );
+        [[UIImage imageNamed:imgName] drawInRect:rect];
+        UIImage *picture1 = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        NSData *imageData = UIImagePNGRepresentation(picture1);
+        UIImage *img=[UIImage imageWithData:imageData];
+            
+            return img;
+        
+}
+
 -(void) Bounce {
+    
+    
     self.ball.animationImages = [NSArray arrayWithObjects:
-                                  [UIImage imageNamed:@"football2.png"],
-                                  [UIImage imageNamed:@"football3.png"],
-                                  [UIImage imageNamed:@"football2.png"],
-                                  [UIImage imageNamed:@"football1.png"], nil ];
+                                  [self changeImageSize:@"football2.png" toWidth:40 andHeightto:40],
+                                 [self changeImageSize:@"football3.png" toWidth:40 andHeightto:40],
+                                 [self changeImageSize:@"football2.png" toWidth:40 andHeightto:40],
+                                 [self changeImageSize:@"football1.png" toWidth:40 andHeightto:40], nil ];
     
     [self.ball setAnimationRepeatCount:1];
     self.ball.animationDuration = 0.2;
@@ -256,10 +263,9 @@ NSOperationQueue *operation;
 }
 
 
-//POHYB PLATFORMY KOD
+
 - (void) PohybPlatformy {
     
-    //   Pohyb platformy do stran a dole (ked skocime na platformu)
     
     self.platform1.center = CGPointMake(self.platform1.center.x, self.platform1.center.y + padaniePlatformy);
     self.platform2.center = CGPointMake(self.platform2.center.x, self.platform2.center.y + padaniePlatformy);
@@ -268,7 +274,7 @@ NSOperationQueue *operation;
     self.platform5.center = CGPointMake(self.platform5.center.x + platform5pohyb, self.platform5.center.y + padaniePlatformy);
     self.platform6.center = CGPointMake(self.platform6.center.x, self.platform6.center.y + padaniePlatformy);
     
-    
+    //  Podmienka, aby sa platforma pri dotknuti rohu obratila na druhu stranu;
     if (self.platform3.center.x > 320 ) {
         platform3pohyb = -2;
     } else if(self.platform3.center.x < 60) {
@@ -326,7 +332,6 @@ NSOperationQueue *operation;
     }
     
 }
-
 
 
 @end
