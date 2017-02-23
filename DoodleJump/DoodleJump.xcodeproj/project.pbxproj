@@ -18,6 +18,7 @@
 		C3A99F221E5AB93100896D75 /* football3.png in Resources */ = {isa = PBXBuildFile; fileRef = C3A99F201E5AB93100896D75 /* football3.png */; };
 		C3A99F231E5AB93100896D75 /* football2.png in Resources */ = {isa = PBXBuildFile; fileRef = C3A99F211E5AB93100896D75 /* football2.png */; };
 		C3A99F261E5ABACB00896D75 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A99F251E5ABACB00896D75 /* GameViewController.m */; };
+		C3BD161D1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3BD161C1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		C3A99F211E5AB93100896D75 /* football2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = football2.png; sourceTree = "<group>"; };
 		C3A99F241E5ABACB00896D75 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		C3A99F251E5ABACB00896D75 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		C3BD161C1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 80a3c1b3f162dd88b29e5588b1316ccf.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		C3A99F051E5A94A700896D75 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3BD161C1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg */,
 				C3A99F201E5AB93100896D75 /* football3.png */,
 				C3A99F211E5AB93100896D75 /* football2.png */,
 				C3A99F1E1E5AB70400896D75 /* football1.png */,
@@ -159,6 +162,7 @@
 				C3A99F1F1E5AB70400896D75 /* football1.png in Resources */,
 				C3A99F231E5AB93100896D75 /* football2.png in Resources */,
 				C3A99F121E5A94A700896D75 /* Assets.xcassets in Resources */,
+				C3BD161D1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg in Resources */,
 				C3A99F1D1E5AB43100896D75 /* long-platform.png in Resources */,
 				C3A99F101E5A94A700896D75 /* Main.storyboard in Resources */,
 				C3A99F221E5AB93100896D75 /* football3.png in Resources */,

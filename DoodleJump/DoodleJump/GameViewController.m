@@ -11,14 +11,15 @@
 
 
 @interface GameViewController (){
-CMMotionManager *motion;
-NSOperationQueue *operation;
+    CMMotionManager *motion;
+    NSOperationQueue *operation;
+    NSTimer *time1;
+    float yMax;
 }
 @end
 
 @implementation GameViewController
 
-//INTERAKTIVITA (Naprogramovanie klikatelnej casti
 
 -(void) touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
     
@@ -36,14 +37,27 @@ NSOperationQueue *operation;
 }
 
 -(void) touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-    moveBallLeft = NO;
-    moveBallRight = NO;
-    stopMovement = YES;
+   // moveBallLeft = NO;
+   // moveBallRight = NO;
+    //stopMovement = YES;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    yMax = screenSize.height;
+    
+    motion = [[CMMotionManager alloc] init];
+    motion.deviceMotionUpdateInterval = 1/60;
+    [motion startDeviceMotionUpdates];
+    time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
+    
+    if([motion isGyroAvailable]){
+        if([motion isGyroActive]){
+            [motion setGyroUpdateInterval:0.01];
+        }
+    }
     // Do any additional setup after loading the view.
     self.platform2.hidden = YES;
     self.platform3.hidden = YES;
@@ -55,6 +69,30 @@ NSOperationQueue *operation;
     
 }
 
+-(void)myFunc{
+    CMAttitude * att;
+    CMDeviceMotion * motionDevice = motion.deviceMotion;
+    att = motionDevice.attitude;
+    
+    
+    if(att.roll > 0){
+        //move right
+         moveBallRight = YES;
+    }
+    else if(att.roll < - 0.01){
+        //move left
+         moveBallLeft = YES;
+    }
+    else{
+        moveBallLeft = NO;
+        moveBallRight = NO;
+        stopMovement = YES;
+        
+        //stop movement
+    }
+    
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -177,6 +215,10 @@ NSOperationQueue *operation;
         [self Bounce];
         [self PlatformPad];
     }
+    if(self.ball.frame.origin.y > (float)yMax)
+    {
+        NSLog(@"Game over");
+    }
     
     upMovement = upMovement - 0.3;
     
@@ -242,13 +284,13 @@ NSOperationQueue *operation;
     
     self.ball.animationImages = [NSArray arrayWithObjects:
                                   [self changeImageSize:@"football2.png" toWidth:40 andHeightto:40],
-                                 [self changeImageSize:@"football3.png" toWidth:40 andHeightto:40],
-                                 [self changeImageSize:@"football2.png" toWidth:40 andHeightto:40],
-                                 [self changeImageSize:@"football1.png" toWidth:40 andHeightto:40], nil ];
+                                 [self changeImageSize:@"football3.png" toWidth:40 andHeightto:40]
+                                 , nil ];
     
     [self.ball setAnimationRepeatCount:1];
-    self.ball.animationDuration = 1;
+    self.ball.animationDuration = 1.0;
     [self.ball startAnimating];
+    
     //[self.view addSubview:self.ball];
     if (self.ball.center.y > 600) {
         upMovement = 10;
