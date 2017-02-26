@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc1" id="BYZ-38-t0r" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -22,14 +22,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="80a3c1b3f162dd88b29e5588b1316ccf.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Sag-rA-IhW">
-                                <rect key="frame" x="-9" y="-8" width="384" height="675"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="-9" y="-8" width="423" height="744"/>
+                                <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq0-pZ-VVd">
                                 <rect key="frame" x="86" y="265" width="203" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="37"/>
-                                <state key="normal" title="Game Start">
+                                <state key="normal" title="Start Game">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
@@ -38,18 +38,29 @@
                                     </segue>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3bs-nd-LR8">
+                                <rect key="frame" x="310" y="616" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motion Controll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vI-K7-7VC">
+                                <rect key="frame" x="157" y="609" width="145" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="37.600000000000001" y="43.628185907046479"/>
+            <point key="canvasLocation" x="36" y="42.728635682158924"/>
         </scene>
-        <!--Game View Controller-->
+        <!--vc2-->
         <scene sceneID="MQy-np-F0k">
             <objects>
-                <viewController id="OXj-pN-uuG" customClass="GameViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="vc2" id="OXj-pN-uuG" userLabel="vc2" customClass="GameViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WBp-Wf-PKX"/>
                         <viewControllerLayoutGuide type="bottom" id="ioO-u1-eea"/>
@@ -58,28 +69,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ad125058659chelseas-cameroo.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="bYt-vI-rzA">
+                                <rect key="frame" x="0.0" y="0.0" width="723" height="843"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-N1-cgU" userLabel="pla6">
-                                <rect key="frame" x="214" y="590" width="100" height="16"/>
+                                <rect key="frame" x="214" y="590" width="100" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="qap-OI-huL" userLabel="plat5">
-                                <rect key="frame" x="37" y="511" width="100" height="16"/>
+                                <rect key="frame" x="37" y="486" width="100" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQk-Nr-kh0" userLabel="plat4">
-                                <rect key="frame" x="234" y="399" width="100" height="16"/>
+                                <rect key="frame" x="234" y="399" width="100" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="mPN-Zm-rn4" userLabel="plat3">
-                                <rect key="frame" x="126" y="339" width="100" height="16"/>
+                                <rect key="frame" x="126" y="339" width="100" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="fxD-9Y-qxU" userLabel="plat2">
-                                <rect key="frame" x="214" y="175" width="100" height="16"/>
+                                <rect key="frame" x="214" y="175" width="100" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="xA0-6I-ut1" userLabel="plat1">
-                                <rect key="frame" x="37" y="112" width="100" height="16"/>
+                                <rect key="frame" x="37" y="112" width="100" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhl-Lc-lYa">
@@ -95,7 +110,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.8784313725490196" green="0.8901960784313725" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="ball" destination="PA1-Wg-Wtz" id="dNE-r4-XDL"/>
@@ -110,11 +125,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lal-bY-uvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1008.8" y="111.99400299850076"/>
+            <point key="canvasLocation" x="1003.6231884057971" y="43.614130434782609"/>
         </scene>
     </scenes>
     <resources>
         <image name="80a3c1b3f162dd88b29e5588b1316ccf.jpg" width="750" height="1334"/>
+        <image name="ad125058659chelseas-cameroo.jpg" width="4012" height="2696"/>
         <image name="football1.png" width="2997" height="2997"/>
         <image name="long-platform.png" width="1024" height="256"/>
     </resources>

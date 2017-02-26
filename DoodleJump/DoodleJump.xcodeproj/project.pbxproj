@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C3631ED41E623F590066CC4A /* CR-Boots-Illustrated-Img5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3631ED31E623F590066CC4A /* CR-Boots-Illustrated-Img5.jpg */; };
+		C3631ED61E62574E0066CC4A /* ad125058659chelseas-cameroo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C3631ED51E62574E0066CC4A /* ad125058659chelseas-cameroo.jpg */; };
 		C3A99F071E5A94A700896D75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A99F061E5A94A700896D75 /* main.m */; };
 		C3A99F0A1E5A94A700896D75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A99F091E5A94A700896D75 /* AppDelegate.m */; };
 		C3A99F0D1E5A94A700896D75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3A99F0C1E5A94A700896D75 /* ViewController.m */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C3631ED31E623F590066CC4A /* CR-Boots-Illustrated-Img5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "CR-Boots-Illustrated-Img5.jpg"; sourceTree = "<group>"; };
+		C3631ED51E62574E0066CC4A /* ad125058659chelseas-cameroo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "ad125058659chelseas-cameroo.jpg"; sourceTree = "<group>"; };
 		C3A99F021E5A94A700896D75 /* DoodleJump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoodleJump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3A99F061E5A94A700896D75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C3A99F081E5A94A700896D75 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 		C3A99F051E5A94A700896D75 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C3631ED51E62574E0066CC4A /* ad125058659chelseas-cameroo.jpg */,
+				C3631ED31E623F590066CC4A /* CR-Boots-Illustrated-Img5.jpg */,
 				C3BD161C1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg */,
 				C3A99F201E5AB93100896D75 /* football3.png */,
 				C3A99F211E5AB93100896D75 /* football2.png */,
@@ -161,7 +167,9 @@
 				C3A99F151E5A94A700896D75 /* LaunchScreen.storyboard in Resources */,
 				C3A99F1F1E5AB70400896D75 /* football1.png in Resources */,
 				C3A99F231E5AB93100896D75 /* football2.png in Resources */,
+				C3631ED61E62574E0066CC4A /* ad125058659chelseas-cameroo.jpg in Resources */,
 				C3A99F121E5A94A700896D75 /* Assets.xcassets in Resources */,
+				C3631ED41E623F590066CC4A /* CR-Boots-Illustrated-Img5.jpg in Resources */,
 				C3BD161D1E5CD011000C90D5 /* 80a3c1b3f162dd88b29e5588b1316ccf.jpg in Resources */,
 				C3A99F1D1E5AB43100896D75 /* long-platform.png in Resources */,
 				C3A99F101E5A94A700896D75 /* Main.storyboard in Resources */,

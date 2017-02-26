@@ -15,10 +15,12 @@
     NSOperationQueue *operation;
     NSTimer *time1;
     float yMax;
+    bool motionFlag;
 }
 @end
 
 @implementation GameViewController
+
 
 
 -(void) touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
@@ -33,40 +35,51 @@
     if (bod.x > 160) {
         moveBallRight = YES;
     }
-    
 }
 
 -(void) touchesEnded:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
-   // moveBallLeft = NO;
-   // moveBallRight = NO;
-    //stopMovement = YES;
+    moveBallLeft = NO;
+    moveBallRight = NO;
+    stopMovement = YES;
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    
+}
+-(void)viewDidAppear:(BOOL)animated{
+
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     yMax = screenSize.height;
+    
+    
+    
+    //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
+    
+    //soundFlag = YES;
+    
     
     motion = [[CMMotionManager alloc] init];
     motion.deviceMotionUpdateInterval = 1/60;
     [motion startDeviceMotionUpdates];
-    time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
+    //time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
     
     if([motion isGyroAvailable]){
         if([motion isGyroActive]){
             [motion setGyroUpdateInterval:0.01];
         }
     }
-    // Do any additional setup after loading the view.
+    
     self.platform2.hidden = YES;
     self.platform3.hidden = YES;
     self.platform4.hidden = YES;
     self.platform5.hidden = YES;
     self.platform6.hidden = YES;
-    
-    
-    
 }
 
 -(void)myFunc{
@@ -98,17 +111,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+
 
 - (IBAction)StartGame:(id)sender {
+    
+    
     
     self.startButton.hidden = YES;
     upMovement = -5;
@@ -150,7 +157,14 @@
 
 
 
+-(void) gameEnd
+{
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
+    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:vc animated:YES completion:NULL];
 
+}
 
 
 
@@ -217,7 +231,9 @@
     }
     if(self.ball.frame.origin.y > (float)yMax)
     {
-        NSLog(@"Game over");
+        //NSLog(@"Game over");
+        [self gameEnd];
+        
     }
     
     upMovement = upMovement - 0.3;
@@ -283,15 +299,14 @@
     
     
     self.ball.animationImages = [NSArray arrayWithObjects:
-                                  [self changeImageSize:@"football2.png" toWidth:40 andHeightto:40],
-                                 [self changeImageSize:@"football3.png" toWidth:40 andHeightto:40]
+                                  [self changeImageSize:@"football2" toWidth:20 andHeightto:20],
+                                 [self changeImageSize:@"football3" toWidth:5 andHeightto:5]
                                  , nil ];
     
     [self.ball setAnimationRepeatCount:1];
-    self.ball.animationDuration = 1.0;
+    self.ball.animationDuration = 1;
     [self.ball startAnimating];
     
-    //[self.view addSubview:self.ball];
     if (self.ball.center.y > 600) {
         upMovement = 10;
     } else if (self.ball.center.y > 500) {
@@ -318,8 +333,7 @@
     self.platform5.center = CGPointMake(self.platform5.center.x + platform5pohyb, self.platform5.center.y + padaniePlatformy);
     self.platform6.center = CGPointMake(self.platform6.center.x, self.platform6.center.y + padaniePlatformy);
     
-    //  Podmienka, aby sa platforma pri dotknuti rohu obratila na druhu stranu;
-    if (self.platform3.center.x > 320 ) {
+        if (self.platform3.center.x > 320 ) {
         platform3pohyb = -2;
     } else if(self.platform3.center.x < 60) {
         platform3pohyb = 2;
@@ -337,7 +351,6 @@
         padaniePlatformy = 0;
     }
     
-    //    Nahodne generovanie novych platforiem
     
     if (self.platform1.center.y > 670 ) {
         number = arc4random()% 320;

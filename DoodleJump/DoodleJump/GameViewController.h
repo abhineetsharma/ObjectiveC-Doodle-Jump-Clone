@@ -30,10 +30,14 @@ BOOL stopMovement;
 @property (weak, nonatomic) IBOutlet UIImageView *ball;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
+
+@property(nonatomic) BOOL *motionSwitch;
+
 @property (strong, nonatomic) NSTimer * Casovac;
 
 @property (strong, nonatomic) NSTimer * timer;
 - (IBAction)StartGame:(id)sender;
+
 
 - (void) Movement;
 - (void) Bounce;
