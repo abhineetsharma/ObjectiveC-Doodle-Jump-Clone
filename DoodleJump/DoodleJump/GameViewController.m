@@ -15,6 +15,8 @@
     NSOperationQueue *operation;
     NSTimer *time1;
     float yMax;
+    float xMax;
+    BOOL gameFlag;
     
 }
 @end
@@ -25,15 +27,18 @@
 
 -(void) touchesBegan:(nonnull NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
     
-    UITouch * tuknutie = [touches anyObject];
-    CGPoint bod = [tuknutie locationInView:self.view];
+    if(!motionFlag)
+    {
+        UITouch * touch = [touches anyObject];
+        CGPoint bod = [touch locationInView:self.view];
     
-    if(bod.x < 160) {
-        moveBallLeft = YES;
-    }
+        if(bod.x < xMax/2) {
+            moveBallLeft = YES;
+        }
     
-    if (bod.x > 160) {
-        moveBallRight = YES;
+        if (bod.x > xMax/2) {
+            moveBallRight = YES;
+        }
     }
 }
 
@@ -46,7 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    gameFlag = NO;
     
     
     
@@ -96,13 +101,14 @@
     
     CGSize screenSize = [[UIScreen mainScreen] bounds].size;
     yMax = screenSize.height;
+    xMax = screenSize.width;
     
     
     
     //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     //    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
     
-    //soundFlag = YES;
+    gameFlag = YES;
     
     if(motionFlag)
     {
@@ -177,13 +183,14 @@
 
 -(void) gameEnd
 {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
-    vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
- //   [self presentViewController:vc animated:YES completion:nil];
+    if(gameFlag){
     
-    UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
-    [top presentViewController:vc animated:YES completion: nil];
+        UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
+        vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:vc animated:YES completion:nil];
+        gameFlag = NO;
+    }
 
 }
 
