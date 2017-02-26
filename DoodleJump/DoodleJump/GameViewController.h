@@ -19,6 +19,8 @@ BOOL moveBallLeft;
 BOOL moveBallRight;
 BOOL stopMovement;
 
+BOOL motionFlag;
+
 
 @interface GameViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *platform6;
@@ -29,14 +31,16 @@ BOOL stopMovement;
 @property (weak, nonatomic) IBOutlet UIImageView *platform1;
 @property (weak, nonatomic) IBOutlet UIImageView *ball;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet UILabel *lbl;
 
 
-@property(nonatomic) BOOL *motionSwitch;
+
 
 @property (strong, nonatomic) NSTimer * Casovac;
 
 @property (strong, nonatomic) NSTimer * timer;
 - (IBAction)StartGame:(id)sender;
+- (IBAction)motionSwitch:(id)sender;
 
 
 - (void) Movement;

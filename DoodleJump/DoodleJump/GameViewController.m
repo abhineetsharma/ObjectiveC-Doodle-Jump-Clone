@@ -15,7 +15,7 @@
     NSOperationQueue *operation;
     NSTimer *time1;
     float yMax;
-    bool motionFlag;
+    
 }
 @end
 
@@ -53,28 +53,6 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
 
-    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
-    yMax = screenSize.height;
-    
-    
-    
-    //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
-    
-    //soundFlag = YES;
-    
-    
-    motion = [[CMMotionManager alloc] init];
-    motion.deviceMotionUpdateInterval = 1/60;
-    [motion startDeviceMotionUpdates];
-    time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
-    
-    if([motion isGyroAvailable]){
-        if([motion isGyroActive]){
-            [motion setGyroUpdateInterval:0.01];
-        }
-    }
-    
     self.platform2.hidden = YES;
     self.platform3.hidden = YES;
     self.platform4.hidden = YES;
@@ -116,6 +94,35 @@
 - (IBAction)StartGame:(id)sender {
     
     
+    CGSize screenSize = [[UIScreen mainScreen] bounds].size;
+    yMax = screenSize.height;
+    
+    
+    
+    //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
+    
+    //soundFlag = YES;
+    
+    if(motionFlag)
+    {
+        motion = [[CMMotionManager alloc] init];
+        motion.deviceMotionUpdateInterval = 1/60;
+        [motion startDeviceMotionUpdates];
+    
+        time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
+        NSLog(@"motion on");
+        if([motion isGyroAvailable])
+        {
+            
+            if([motion isGyroActive]){
+                [motion setGyroUpdateInterval:0.01];
+            }
+        }
+    }
+    
+
+    
     
     self.startButton.hidden = YES;
     upMovement = -5;
@@ -155,6 +162,17 @@
     
 }
 
+- (IBAction)motionSwitch:(id)sender {
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        motionFlag = YES;
+    } else {
+        motionFlag = NO;
+
+
+    }
+}
+
 
 
 -(void) gameEnd
@@ -162,7 +180,10 @@
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
     vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-    [self presentViewController:vc animated:YES completion:NULL];
+ //   [self presentViewController:vc animated:YES completion:nil];
+    
+    UIViewController *top = [UIApplication sharedApplication].keyWindow.rootViewController;
+    [top presentViewController:vc animated:YES completion: nil];
 
 }
 
@@ -305,7 +326,7 @@
     
     [self.ball setAnimationRepeatCount:1];
     self.ball.animationDuration = 1;
-    [self.ball startAnimating];
+    //[self.ball startAnimating];
     
     if (self.ball.center.y > 600) {
         upMovement = 10;

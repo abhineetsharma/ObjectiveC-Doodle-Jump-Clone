@@ -41,6 +41,9 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="3bs-nd-LR8">
                                 <rect key="frame" x="310" y="616" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <action selector="motionSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="GpR-6x-DFo"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motion Controll" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vI-K7-7VC">
                                 <rect key="frame" x="157" y="609" width="145" height="45"/>
@@ -85,28 +88,24 @@
                                 <rect key="frame" x="0.0" y="0.0" width="723" height="843"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-N1-cgU" userLabel="pla6">
-                                <rect key="frame" x="214" y="590" width="100" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="qap-OI-huL" userLabel="plat5">
-                                <rect key="frame" x="37" y="486" width="100" height="60"/>
+                                <rect key="frame" x="37" y="486" width="75" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQk-Nr-kh0" userLabel="plat4">
-                                <rect key="frame" x="234" y="399" width="100" height="60"/>
+                                <rect key="frame" x="234" y="399" width="75" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="mPN-Zm-rn4" userLabel="plat3">
-                                <rect key="frame" x="126" y="339" width="100" height="60"/>
+                                <rect key="frame" x="115" y="339" width="75" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="fxD-9Y-qxU" userLabel="plat2">
-                                <rect key="frame" x="214" y="175" width="100" height="60"/>
+                                <rect key="frame" x="214" y="175" width="75" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="xA0-6I-ut1" userLabel="plat1">
-                                <rect key="frame" x="37" y="112" width="100" height="60"/>
+                                <rect key="frame" x="37" y="112" width="75" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhl-Lc-lYa">
@@ -121,11 +120,23 @@
                                 <rect key="frame" x="256" y="543" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMi-K0-oMS">
+                                <rect key="frame" x="115" y="60" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="long-platform.png" translatesAutoresizingMaskIntoConstraints="NO" id="KMo-N1-cgU" userLabel="pla6">
+                                <rect key="frame" x="214" y="591" width="75" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.8784313725490196" green="0.8901960784313725" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="ball" destination="PA1-Wg-Wtz" id="dNE-r4-XDL"/>
+                        <outlet property="lbl" destination="CMi-K0-oMS" id="QHc-Ay-Ef8"/>
                         <outlet property="platform1" destination="KMo-N1-cgU" id="cPh-hB-JmA"/>
                         <outlet property="platform2" destination="qap-OI-huL" id="gBu-zR-bD0"/>
                         <outlet property="platform3" destination="wQk-Nr-kh0" id="ozQ-JB-UYe"/>
@@ -137,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lal-bY-uvz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1003.6231884057971" y="43.614130434782609"/>
+            <point key="canvasLocation" x="1002.4" y="42.728635682158924"/>
         </scene>
     </scenes>
     <resources>

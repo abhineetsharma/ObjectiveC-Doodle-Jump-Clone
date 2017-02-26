@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DoodleJump/GameViewController.m"
-            timestampString = "509785188.207747"
+            timestampString = "509832169.896301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "290"
-            endingLineNumber = "290"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "-changeImageSize:toWidth:andHeightto:"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DoodleJump/GameViewController.m"
-            timestampString = "509785188.207747"
+            timestampString = "509832169.896301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
             landmarkName = "-changeImageSize:toWidth:andHeightto:"
             landmarkType = "7">
          </BreakpointContent>
@@ -49,6 +49,22 @@
             endingLineNumber = "21"
             landmarkName = "@implementation GameViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DoodleJump/GameViewController.m"
+            timestampString = "509831732.277345"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "-motionSwitch:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
