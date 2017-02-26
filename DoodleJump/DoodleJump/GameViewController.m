@@ -67,7 +67,7 @@
     motion = [[CMMotionManager alloc] init];
     motion.deviceMotionUpdateInterval = 1/60;
     [motion startDeviceMotionUpdates];
-    //time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
+    time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
     
     if([motion isGyroAvailable]){
         if([motion isGyroActive]){
