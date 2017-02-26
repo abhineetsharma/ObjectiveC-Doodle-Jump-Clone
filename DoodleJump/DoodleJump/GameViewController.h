@@ -21,7 +21,7 @@ BOOL stopMovement;
 
 BOOL motionFlag;
 
-
+NSString * hscore;
 @interface GameViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *platform6;
 @property (weak, nonatomic) IBOutlet UIImageView *platform5;
@@ -32,7 +32,9 @@ BOOL motionFlag;
 @property (weak, nonatomic) IBOutlet UIImageView *ball;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (weak, nonatomic) IBOutlet UILabel *lbl;
+@property (weak, nonatomic) IBOutlet UILabel *labelScore;
 
+@property (weak, nonatomic) IBOutlet UILabel *lblHighScore;
 
 
 

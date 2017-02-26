@@ -17,6 +17,7 @@
     float yMax;
     float xMax;
     BOOL gameFlag;
+    int platNo, bplatNo, score;
     
 }
 @end
@@ -52,8 +53,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     gameFlag = NO;
+    bplatNo = 1;
+    score = 0;
     
-    
+    hscore = [[NSUserDefaults standardUserDefaults] stringForKey:@"highScore"];
+    self.lblHighScore.text = hscore;
     
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -105,8 +109,7 @@
     
     
     
-    //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //    UIViewController *vc = [sb instantiateViewControllerWithIdentifier:@"vc1"];
+  
     
     gameFlag = YES;
     
@@ -117,8 +120,7 @@
         [motion startDeviceMotionUpdates];
     
         time1 = [NSTimer scheduledTimerWithTimeInterval:1/60 target:self selector:@selector(myFunc) userInfo:nil repeats:YES];
-        NSLog(@"motion on");
-        if([motion isGyroAvailable])
+                if([motion isGyroAvailable])
         {
             
             if([motion isGyroActive]){
@@ -223,37 +225,37 @@
     
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform1.frame)) && (upMovement < -2) ) {
-        
+        platNo = 1;
         [self Bounce];
         [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform2.frame)) && (upMovement < -2) ) {
-        
+        platNo = 2;
         [self Bounce];
         [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform3.frame)) && (upMovement < -2) ) {
-        
+        platNo = 3;
         [self Bounce];
         [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform4.frame)) && (upMovement < -2) ) {
-        
+        platNo = 4;
         [self Bounce];
         [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform5.frame)) && (upMovement < -2) ) {
-        
+        platNo = 5;
         [self Bounce];
         [self PlatformPad];
     }
     
     if ((CGRectIntersectsRect(self.ball.frame, self.platform6.frame)) && (upMovement < -2) ) {
-        
+        platNo = 6;
         [self Bounce];
         [self PlatformPad];
     }
@@ -343,6 +345,22 @@
         upMovement = 8;
     } else {
         upMovement = 7;
+    }
+    if(platNo != bplatNo)
+    {
+        bplatNo = platNo;
+        score+=5;
+        self.labelScore.text = [NSString stringWithFormat:@"%i",score];
+        
+        int highScoreInt = [hscore intValue];
+        if(score>highScoreInt){
+            hscore = [NSString stringWithFormat:@"%i",score];
+            
+            [[NSUserDefaults standardUserDefaults] setObject:hscore forKey:@"highScore"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            
+        }
     }
     
   
