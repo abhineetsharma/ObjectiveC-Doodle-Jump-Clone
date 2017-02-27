@@ -329,12 +329,12 @@
     
     
     self.ball.animationImages = [NSArray arrayWithObjects:
-                                  [self changeImageSize:@"football2" toWidth:20 andHeightto:10],
-                                 [self changeImageSize:@"football3" toWidth:20 andHeightto:5]
-                                 , nil ];
+                                  [self changeImageSize:@"football5" toWidth:100 andHeightto:100],
+                                 //[self changeImageSize:@"football4" toWidth:20 andHeightto:5]
+                                  nil ];
     
     [self.ball setAnimationRepeatCount:1];
-    //self.ball.animationDuration = 1;
+    self.ball.animationDuration = 0.5;
     [self.ball startAnimating];
     
     if (self.ball.center.y > 600) {
