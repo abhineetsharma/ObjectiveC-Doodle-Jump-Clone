@@ -1,1 +1,1 @@
-the app has gyeroscope movement 
+the app has gyroscope movement that can be switched on/off from menu
